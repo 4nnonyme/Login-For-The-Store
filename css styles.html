@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+  <title>Sign Up</title>
+</head>
+<body>
+  <h1>Welcome To Our Service</h1>
+
+  <!-- Form starts here -->
+  <div id="loading" style="display: none;">
+    <div class="spinner"></div>
+  </div>  
+  <form id="signupForm">
+    <fieldset>
+      <legend>Your Information</legend>
+      <label>Name </label>
+      <input type="text" placeholder="Your Name" required /><br /><br />
+
+      <label>Last Name </label>
+      <input type="text" placeholder="Your Last Name" required /><br /><br />
+
+      <label>Email </label>
+      <input type="email" placeholder="Your Email" required /><br /><br />
+
+      <label>Your Website (optional) </label>
+      <input type="text" placeholder="https://www." /><br /><br />
+
+      <label>Your Password </label>
+      <input type="password" placeholder="Your Password" required /><br /><br />
+
+      <input type="radio" name="sex" id="Homme" />
+      <label for="Homme">Male</label>
+
+      <input type="radio" name="sex" id="Femme" />
+      <label for="Femme">Female</label><br /><br />
+
+      <select name="pays" id="pays">
+        <optgroup label="America">
+          <option value="1">USA</option>
+          <option value="2">CANADA</option>
+          <option value="3">LOS ANGELOS</option>
+        </optgroup>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <legend>Send Us Your Identity Confirmation</legend>
+      <input type="file" required /><br /><br />
+      <input type="submit" value="Send" />
+      <input type="reset" value="Clear" />
+    </fieldset>
+  </form>
+
+  <fieldset>
+    <legend>Our Prices</legend>
+    <table border="1" cellspacing="0" cellpadding="5">
+      <tr>
+        <th>Options</th>
+        <th>Prices</th>
+        <th>Durations</th>
+      </tr>
+      <tr>
+        <td>Free</td>
+        <td>10$</td>
+        <td>20$</td>
+      </tr>
+      <tr>
+        <td>1 Month</td>
+        <td>3 Months</td>
+        <td>6 Months</td>
+      </tr>
+    </table>
+  </fieldset>
+
+  <script>
+    // JavaScript redirect on form submit
+    document.getElementById("signupForm").addEventListener("submit", function (e) {
+      e.preventDefault(); // يمنع الإرسال العادي
+
+      // تحقق سريع
+      const inputs = this.querySelectorAll("input[required]");
+      let valid = true;
+      inputs.forEach(input => {
+        if (!input.value) valid = false;
+      });
+
+      const genderSelected = this.querySelector("input[name='sex']:checked");
+      if (!genderSelected) valid = false;
+
+      if (!valid) {
+        alert("Please fill in all required fields.");
+      } else {
+        // إذا كل شيء صحيح، يمشي للـ panel
+        window.location.href = "https://4nnonyme.github.io/FREE-FIRE-PANEL-DOWNLOAD/index.html";
+      }
+    });
+  </script>
+  <script>
+document.getElementById("signupForm").addEventListener("submit", function (e) {
+  e.preventDefault(); // يمنع الإرسال العادي
+
+  const inputs = this.querySelectorAll("input[required]");
+  let valid = true;
+  inputs.forEach(input => {
+    if (!input.value) valid = false;
+  });
+
+  const genderSelected = this.querySelector("input[name='sex']:checked");
+  if (!genderSelected) valid = false;
+
+  if (!valid) {
+    alert("Please fill in all required fields.");
+  } else {
+    // إظهار اللودينغ
+    document.getElementById("loading").style.display = "flex";
+
+    // بعد 2 ثواني، يبدّل الصفحة
+    setTimeout(() => {
+      window.location.href = "https://4nnonyme.github.io/FREE-FIRE-PANEL-DOWNLOAD/index.html";
+    }, 2000);
+  }
+});
+
+  </script>
+</body>
+</html>
